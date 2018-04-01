@@ -19,7 +19,10 @@ class UnofficialSpineExport(Extension):
         self.slotPattern = re.compile("\(slot\)|\[slot\]", re.IGNORECASE)
 
     def setup(self):
-        action = Krita.instance().createAction("unofficialspineexportAction", "Export to Spine")
+        pass
+
+    def createActions(self, window):
+        action = window.createAction("unofficialspineexportAction", "Export to Spine", "tools/scripts")
         action.triggered.connect(self.exportDocument)
 
     def exportDocument(self):
@@ -133,3 +136,4 @@ class UnofficialSpineExport(Extension):
 
 # And add the extension to Krita's list of extensions:
 Krita.instance().addExtension(UnofficialSpineExport(Krita.instance()))
+
