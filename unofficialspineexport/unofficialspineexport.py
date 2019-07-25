@@ -4,7 +4,7 @@ import re
 
 from PyQt5.QtWidgets import (QFileDialog, QMessageBox)
 
-from krita import (Krita, Extension)
+from krita import (Krita, Extension, InfoObject)
 
 
 class UnofficialSpineExport(Extension):
@@ -107,7 +107,7 @@ class UnofficialSpineExport(Extension):
 
             name = self.mergePattern.sub('', child.name()).strip()
             layerFileName = '{0}/{1}.{2}'.format(directory, name, self.fileFormat)
-            child.save(layerFileName, 96, 96)
+            child.save(layerFileName, 96, 96, InfoObject())
 
             newSlot = slot
             if not newSlot:
